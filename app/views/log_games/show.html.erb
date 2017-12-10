@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @log_game.user.email %>
+</p>
+
+<p>
+  <strong>Dateplayed:</strong>
+  <%= @log_game.dateplayed %>
+</p>
+
+<p>
+  <strong>Opponent:</strong>
+  <%= opponent_name(@log_game.opponent) %>
+</p>
+
+<p>
+  <strong>Yourscore:</strong>
+  <%= @log_game.yourscore %>
+</p>
+
+<p>
+  <strong>Theirscore:</strong>
+  <%= @log_game.theirscore %>
+</p>
+
+<%= link_to 'Edit', edit_log_game_path(@log_game) %> |
+<%= link_to 'Back', log_games_path %>

@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    @players = User.all
   end
 
   def history
@@ -7,4 +8,5 @@ class HomeController < ApplicationController
 
   def log
   end
+
 end

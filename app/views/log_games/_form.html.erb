@@ -1,0 +1,42 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <%= form_for(@log_game) do |f| %>
+        <% if @log_game.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@log_game.errors.count, "error") %> prohibited this log_game from being saved:</h2>
+
+          <ul>
+            <% @log_game.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+        <% end %>
+
+        <!--div class="form-group">
+        <%= f.label :user_id %><br>
+        <%= f.text_field :user_id %>
+      </div-->
+      <div class="form-group">
+        <%= f.label :dateplayed %><br>
+        <%= f.date_select :dateplayed %>
+      </div>
+      <div class="form-group">
+        <%= f.label :opponent %><br>
+        <%= f.select :opponent, options_from_collection_for_select(all_users_not_user(current_user.id), :id, :name), class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :yourscore %><br>
+        <%= f.number_field :yourscore, class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :theirscore %><br>
+        <%= f.number_field :theirscore, class:"form-control" %>
+      </div><br>
+      <div class="actions">
+        <%= f.submit "Save", class:"btn btn-primary" %>
+        <%= link_to "Canche", root_path %>
+      </div>
+    <% end %>
+  </div>
+</div>

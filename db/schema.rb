@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151119003939) do
+ActiveRecord::Schema.define(version: 20171209194517) do
+
+  create_table "log_games", force: :cascade do |t|
+    t.integer  "user_id"
+    t.date     "dateplayed"
+    t.integer  "opponent"
+    t.integer  "yourscore"
+    t.integer  "theirscore"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "log_games", ["user_id"], name: "index_log_games_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -24,6 +36,7 @@ ActiveRecord::Schema.define(version: 20151119003939) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "name"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end
